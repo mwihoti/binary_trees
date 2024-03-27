@@ -1,19 +1,19 @@
 #include "binary_trees.h"
 
 /**
- * _pow_recursion - returns the value of x raised to power of y
+ * _pow_recur - returns the value of x raised to power of y
  * @x: value of exponentiate
  * @y: power to raise x to
  * Return: x^y
  */
-int _pow_recursion(int x, int y)
+int _pow_recur(int x, int y)
 {
 	if (y < 0)
 		return (-1);
 	if (y == 0)
 		return (1);
 	else
-		return (x * _pow_recursion(x, y - 1));
+		return (x * _pow_recur(x, y - 1));
 }
 
 /**
@@ -34,7 +34,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	h = binary_tree_height(tree);
 	n = binary_tree_size(tree);
 
-	p = (size_t)_pow_recursion(2, h + 1);
+	p = (size_t)_pow_recur(2, h + 1);
 	return (p - 1 == n);
 }
 
